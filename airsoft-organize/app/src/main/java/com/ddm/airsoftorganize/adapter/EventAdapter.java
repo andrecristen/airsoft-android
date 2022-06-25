@@ -43,7 +43,7 @@ public class EventAdapter extends BaseAdapter {
 
         LayoutInflater inflater = LayoutInflater.from(context);
         // TODO: 25/06/2022 criar layout de listagem de evento
-        View view = inflater.inflate(R.layout.activity_main, parent, false);
+        View view = inflater.inflate(R.layout.activity_login, parent, false);
 
         Event event = eventos.get(position);
 
