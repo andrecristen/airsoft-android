@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/signin"
         android:layout_width="wrap_content"
-        android:layout_height="152dp"
+        android:layout_height="250dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
         android:src="@drawable/logo" />
 
     <EditText
@@ -22,16 +22,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#bc92d2"
-        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:background="@color/background_field"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="5dp"
         android:hint="Email"
         android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey" />
 
 
     <EditText
@@ -39,13 +38,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="#bc92d2"
+        android:background="@color/background_field"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="5dp"
         android:hint="Senha"
         android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey" />
 
     <Button
         android:id="@+id/login_btn"
@@ -53,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="10px"
+        android:textColor="@color/white"
         android:text="Entrar" />
 
     <Button
@@ -60,7 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Cadastrar-se" />
+        android:textColor="@color/white"
+        android:text="Cadastre-se" />
 
 
 </LinearLayout>

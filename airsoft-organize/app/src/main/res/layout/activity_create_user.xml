@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".CreateUserActivity">
 
     <ImageView
         android:id="@+id/signin2"
         android:layout_width="match_parent"
-        android:layout_height="152dp"
+        android:layout_height="164dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
@@ -18,7 +19,6 @@
         android:gravity="center"
         android:src="@drawable/logo"
         android:textColor="@color/white"
-        android:textSize="35dp"
         android:textStyle="bold" />
 
     <EditText
@@ -27,11 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/signin"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#bc92d2"
-        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:background="@color/background_field"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="5dp"
         android:hint="Nome Completo"
         android:padding="20dp"
@@ -47,14 +46,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#bc92d2"
-        android:drawableLeft="@android:drawable/ic_dialog_info"
+        android:background="@color/background_field"
+        android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
         android:drawablePadding="5dp"
         android:hint="Data de Nascimento"
         android:inputType="date"
         android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey" />
 
     <EditText
         android:id="@+id/username"
@@ -65,13 +64,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#bc92d2"
-        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:background="@color/background_field"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
         android:drawablePadding="5dp"
         android:hint="Email"
         android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey" />
 
     <EditText
         android:id="@+id/password"
@@ -82,13 +81,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#bc92d2"
+        android:background="@color/background_field"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="5dp"
         android:hint="Senha"
         android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey" />
 
     <EditText
         android:id="@+id/confirmPassword"
@@ -99,13 +98,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#bc92d2"
+        android:background="@color/background_field"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="5dp"
         android:hint="Confirmar Senha"
         android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/confirmBtn"
