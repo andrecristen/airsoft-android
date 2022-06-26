@@ -9,10 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ddm.airsoftorganize.models.AuthResponse;
+import com.ddm.airsoftorganize.response.AuthResponse;
 import com.ddm.airsoftorganize.models.UserSession;
 import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
 

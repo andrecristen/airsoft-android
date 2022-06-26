@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.ddm.airsoftorganize.models.AuthResponse;
-import com.ddm.airsoftorganize.models.UserSession;
+import com.ddm.airsoftorganize.response.DefaultResponse;
 import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
 
 import okhttp3.MultipartBody;
@@ -43,40 +43,41 @@ public class CreateUserActivity extends AppCompatActivity {
                 EditText username = findViewById(R.id.createUsername);
                 EditText password = findViewById(R.id.createPassword);
                 EditText confirm_passowrd = findViewById(R.id.createConfirmPassword);
-//                todo fazer validacao senha e confirmacao de senha
-//                if (confirm_passowrd != password){
-//                    progress.dismiss();
-//                    Toast.makeText(context, "Senha e confirmação de senha inválidas", Toast.LENGTH_LONG).show();
-//                }
-                RequestBody requestBody = new MultipartBody.Builder()
-                        .setType(MultipartBody.FORM)
-                        .addFormDataPart("nomeCompleto", full_name.getText().toString())
-                        .addFormDataPart("dataNascimento", birth_date.getText().toString())
-                        .addFormDataPart("email", username.getText().toString())
-                        .addFormDataPart("senha", password.getText().toString())
-                        .build();
-                Call<AuthResponse> call = new RetrofitInitializer().user().executeCreateUser(requestBody);
-                call.enqueue(new Callback<AuthResponse>() {
-                    @Override
-                    public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
-                        progress.dismiss();
-                        if (response.body() != null) {
-                            if (response.body().getSuccess().equals("true") && !response.body().getToken().isEmpty()) {
-                                UserSession userSession = UserSession.getInstance(response.body().getToken());
-                                Toast.makeText(context, "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                if (password.getText().toString().equals(confirm_passowrd.getText().toString())){
+                    RequestBody requestBody = new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart("nomeCompleto", full_name.getText().toString())
+                            .addFormDataPart("dataNascimento", birth_date.getText().toString())
+                            .addFormDataPart("email", username.getText().toString())
+                            .addFormDataPart("senha", password.getText().toString())
+                            .build();
+                    Call<DefaultResponse> call = new RetrofitInitializer().user().executeCreateUser(requestBody);
+                    call.enqueue(new Callback<DefaultResponse>() {
+                        @Override
+                        public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                            progress.dismiss();
+                            if (response.body() != null) {
+                                if (response.body().getSuccess().equals("true")) {
+                                    Toast.makeText(context, "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                                    Intent login = new Intent(view.getContext(), LoginActivity.class);
+                                    startActivity(login);
+                                } else {
+                                    Toast.makeText(context, "Erro ao cadastrar: " + response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                }
                             } else {
-                                Toast.makeText(context, "Erro ao cadastrar: " + response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, "Erro ao cadastrar usuário, verifique os dados e tente novamente:", Toast.LENGTH_LONG).show();
                             }
-                        } else {
-                            Toast.makeText(context, "Erro ao cadastrar usuário, verifique os dados e tente novamente.", Toast.LENGTH_LONG).show();
                         }
-                    }
-                    @Override
-                    public void onFailure(Call<AuthResponse> call, Throwable t) {
-                        progress.dismiss();
-                        Toast.makeText(context, "Falha na requisição", Toast.LENGTH_LONG).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                            progress.dismiss();
+                            Toast.makeText(context, "Falha na requisição", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }else{
+                    progress.dismiss();
+                    Toast.makeText(context, "Senha e confirmação de senha diferentes", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

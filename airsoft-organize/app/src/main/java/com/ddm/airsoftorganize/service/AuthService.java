@@ -1,6 +1,6 @@
 package com.ddm.airsoftorganize.service;
 
-import com.ddm.airsoftorganize.models.AuthResponse;
+import com.ddm.airsoftorganize.response.AuthResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
