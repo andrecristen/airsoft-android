@@ -1,4 +1,15 @@
 <resources>
-    <string name="app_name">AirsoftOrganize</string>
+    <string name="app_name">Airsoft Organize</string>
     <string name="logo">logo</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Configurações</string>
+
+    <string name="menu_registrations">Minhas inscrições</string>
+    <string name="menu_team">Minha equipe</string>
+    <string name="menu_account">Minha conta</string>
+    <string name="menu_event_history">Histórico de eventos</string>
 </resources>

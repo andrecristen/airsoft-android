@@ -63,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
                             if (response.body().getSuccess().equals("true") && !response.body().getToken().isEmpty()) {
                                 UserSession userSession = UserSession.getInstance(response.body().getToken());
                                 Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_LONG).show();
+                                Intent home = new Intent(view.getContext(), HomeActivity.class);
+                                startActivity(home);
                             } else {
                                 Toast.makeText(context, "Erro ao efetuar login: " + response.body().getMessage(), Toast.LENGTH_LONG).show();
                             }
