@@ -18,7 +18,7 @@
         android:src="@drawable/logo" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/loginUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -34,13 +34,14 @@
 
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/loginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/background_field"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="5dp"
+        android:inputType="textPassword"
         android:hint="Senha"
         android:padding="20dp"
         android:textColor="@color/grey"
