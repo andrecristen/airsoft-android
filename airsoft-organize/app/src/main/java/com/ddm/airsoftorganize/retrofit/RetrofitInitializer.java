@@ -1,6 +1,7 @@
 package com.ddm.airsoftorganize.retrofit;
 
 import com.ddm.airsoftorganize.service.AuthService;
+import com.ddm.airsoftorganize.service.UserService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -23,6 +24,10 @@ public class RetrofitInitializer {
                 .addConverterFactory(JacksonConverterFactory.create())
                 .client(client)
                 .build();
+    }
+
+    public UserService user(){
+        return retrofit.create(UserService.class);
     }
 
     public AuthService auth() {
