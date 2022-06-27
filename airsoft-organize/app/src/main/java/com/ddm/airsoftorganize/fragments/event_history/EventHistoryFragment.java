@@ -1,4 +1,4 @@
-package com.ddm.airsoftorganize.ui.event_history;
+package com.ddm.airsoftorganize.fragments.event_history;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

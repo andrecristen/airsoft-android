@@ -9,7 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.
+        recyclerview.widget.RecyclerView;
 
 import com.ddm.airsoftorganize.R;
 import com.ddm.airsoftorganize.models.Event;

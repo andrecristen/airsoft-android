@@ -1,16 +1,16 @@
-package com.ddm.airsoftorganize.ui.team;
+package com.ddm.airsoftorganize.fragments.account;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class TeamViewModel extends ViewModel {
+public class AccountViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public TeamViewModel() {
+    public AccountViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("team fragment");
+        mText.setValue("account fragment");
     }
 
     public LiveData<String> getText() {

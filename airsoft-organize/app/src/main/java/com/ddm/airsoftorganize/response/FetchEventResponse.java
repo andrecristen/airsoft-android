@@ -1,15 +1,12 @@
 package com.ddm.airsoftorganize.response;
 
 import com.ddm.airsoftorganize.models.Event;
-import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 public class FetchEventResponse {
 
-    @SerializedName("eventos")
     List<Event> eventList;
-    @SerializedName("success")
     String success;
 
     String error;
