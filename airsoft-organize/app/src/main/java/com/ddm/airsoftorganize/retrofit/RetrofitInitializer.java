@@ -1,6 +1,7 @@
 package com.ddm.airsoftorganize.retrofit;
 
 import com.ddm.airsoftorganize.service.AuthService;
+import com.ddm.airsoftorganize.service.EventService;
 import com.ddm.airsoftorganize.service.UserService;
 
 import okhttp3.OkHttpClient;
@@ -32,6 +33,10 @@ public class RetrofitInitializer {
 
     public AuthService auth() {
         return retrofit.create(AuthService.class);
+    }
+
+    public EventService event() {
+        return retrofit.create(EventService.class);
     }
 
 }

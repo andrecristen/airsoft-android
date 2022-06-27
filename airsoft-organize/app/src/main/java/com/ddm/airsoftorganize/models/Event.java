@@ -1,7 +1,9 @@
 package com.ddm.airsoftorganize.models;
 
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Event {
     private String id;
     private String name;

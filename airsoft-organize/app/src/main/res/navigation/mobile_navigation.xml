@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_registrations"
-        android:name="com.ddm.airsoftorganize.ui.registration.RegistrationFragment"
+        android:name="com.ddm.airsoftorganize.ui.my_events.MyEventsFragment"
         android:label="@string/menu_registrations"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_event" />
 
     <fragment
         android:id="@+id/nav_team"
