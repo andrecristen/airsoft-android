@@ -1,4 +1,4 @@
-package com.ddm.airsoftorganize.ui.account;
+package com.ddm.airsoftorganize.fragments.event_history;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.ddm.airsoftorganize.databinding.FragmentSlideshowBinding;
 
-public class AccountFragment extends Fragment {
+public class EventHistoryFragment extends Fragment {
 
     private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        AccountViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(AccountViewModel.class);
+        EventHistoryViewModel slideshowViewModel =
+                new ViewModelProvider(this).get(EventHistoryViewModel.class);
 
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

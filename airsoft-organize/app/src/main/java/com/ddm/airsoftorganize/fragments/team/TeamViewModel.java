@@ -1,16 +1,16 @@
-package com.ddm.airsoftorganize.ui.registration;
+package com.ddm.airsoftorganize.fragments.team;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class RegistrationViewModel extends ViewModel {
+public class TeamViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public RegistrationViewModel() {
+    public TeamViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("registration fragment");
+        mText.setValue("team fragment");
     }
 
     public LiveData<String> getText() {

@@ -1,4 +1,4 @@
-package com.ddm.airsoftorganize.ui.registration;
+package com.ddm.airsoftorganize.fragments.team;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.ddm.airsoftorganize.databinding.FragmentHomeBinding;
+import com.ddm.airsoftorganize.databinding.FragmentGalleryBinding;
 
-public class RegistrationFragment extends Fragment {
+public class TeamFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        RegistrationViewModel homeViewModel =
-                new ViewModelProvider(this).get(RegistrationViewModel.class);
+        TeamViewModel galleryViewModel =
+                new ViewModelProvider(this).get(TeamViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textGallery;
+        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

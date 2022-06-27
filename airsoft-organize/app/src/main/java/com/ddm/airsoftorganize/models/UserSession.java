@@ -11,6 +11,10 @@ public final class UserSession {
         this.token = value;
     }
 
+    public String getToken() {
+        return token;
+    }
+
     public static UserSession getInstance(String value) {
         if (instance == null) {
             instance = new UserSession(value);

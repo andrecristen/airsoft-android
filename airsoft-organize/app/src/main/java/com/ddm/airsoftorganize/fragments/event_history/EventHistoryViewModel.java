@@ -1,16 +1,16 @@
-package com.ddm.airsoftorganize.ui.account;
+package com.ddm.airsoftorganize.fragments.event_history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class AccountViewModel extends ViewModel {
+public class EventHistoryViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public AccountViewModel() {
+    public EventHistoryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("account fragment");
+        mText.setValue("EventHistory fragment");
     }
 
     public LiveData<String> getText() {
