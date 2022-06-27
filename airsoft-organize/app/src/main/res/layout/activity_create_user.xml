@@ -67,7 +67,7 @@
         android:background="@color/background_field"
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:drawablePadding="5dp"
-        android:hint="Email"
+        android:hint="E-mail"
         android:padding="20dp"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey" />
