@@ -23,12 +23,22 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Context context;
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (!UserSession.getInstance(UserSession.tokenEmptySession).token.equals(UserSession.tokenEmptySession)) {
+            startHome();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Context context = this;
+        this.context = this;
 
         Button btnCreate = findViewById(R.id.create_btn);
         btnCreate.setOnClickListener(new View.OnClickListener() {
@@ -61,10 +71,9 @@ public class LoginActivity extends AppCompatActivity {
                         progress.dismiss();
                         if (response.body() != null) {
                             if (response.body().getSuccess().equals("true") && !response.body().getToken().isEmpty()) {
-                                UserSession userSession = UserSession.getInstance(response.body().getToken());
+                                UserSession.getInstance(response.body().getToken());
                                 Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_LONG).show();
-                                Intent home = new Intent(view.getContext(), HomeActivity.class);
-                                startActivity(home);
+                                startHome();
                             } else {
                                 Toast.makeText(context, "Erro ao efetuar login: " + response.body().getMessage(), Toast.LENGTH_LONG).show();
                             }
@@ -80,5 +89,10 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public void startHome() {
+        Intent home = new Intent(context, HomeActivity.class);
+        startActivity(home);
     }
 }

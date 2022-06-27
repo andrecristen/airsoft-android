@@ -2,6 +2,8 @@ package com.ddm.airsoftorganize.models;
 
 public final class UserSession {
 
+    public static String tokenEmptySession = "empty";
+
     private static UserSession instance;
     public String token;
 
