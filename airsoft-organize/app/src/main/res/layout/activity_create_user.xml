@@ -85,6 +85,7 @@
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="5dp"
         android:hint="Senha"
+        android:inputType="textPassword"
         android:padding="20dp"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey" />
@@ -102,6 +103,7 @@
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="5dp"
         android:hint="Confirmar Senha"
+        android:inputType="textPassword"
         android:padding="20dp"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey" />

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.ddm.airsoftorganize.response.DefaultResponse;
 import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
+import com.ddm.airsoftorganize.util.MaskEditUtil;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -29,6 +30,9 @@ public class CreateUserActivity extends AppCompatActivity {
 
         Context context = this;
 
+        EditText editTextDateBith = findViewById(R.id.createBirthDate);
+        editTextDateBith.addTextChangedListener(MaskEditUtil.mask(editTextDateBith, MaskEditUtil.FORMAT_DATE));
+
         Button btnCreate = findViewById(R.id.confirmBtn);
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,16 +42,19 @@ public class CreateUserActivity extends AppCompatActivity {
                 progress.setMessage("Aguarde a validação de cadastro...");
                 progress.setCancelable(false);
                 progress.show();
-                EditText full_name = findViewById(R.id.createFullname);
-                EditText birth_date = findViewById(R.id.createBirthDate);
+                EditText fullName = findViewById(R.id.createFullname);
+                EditText birthDate = findViewById(R.id.createBirthDate);
+                String birtDateInput = birthDate.getText().toString();
+                //API Format Y-m-d
+                String birthDateSend = birtDateInput.substring(6, birtDateInput.length()) + "-" + birtDateInput.substring(3, 5) + "-" + birtDateInput.substring(0, 2);
                 EditText username = findViewById(R.id.createUsername);
                 EditText password = findViewById(R.id.createPassword);
-                EditText confirm_passowrd = findViewById(R.id.createConfirmPassword);
-                if (password.getText().toString().equals(confirm_passowrd.getText().toString())){
+                EditText confirmPassowrd = findViewById(R.id.createConfirmPassword);
+                if (password.getText().toString().equals(confirmPassowrd.getText().toString())){
                     RequestBody requestBody = new MultipartBody.Builder()
                             .setType(MultipartBody.FORM)
-                            .addFormDataPart("nomeCompleto", full_name.getText().toString())
-                            .addFormDataPart("dataNascimento", birth_date.getText().toString())
+                            .addFormDataPart("nomeCompleto", fullName.getText().toString())
+                            .addFormDataPart("dataNascimento", birthDateSend)
                             .addFormDataPart("email", username.getText().toString())
                             .addFormDataPart("senha", password.getText().toString())
                             .build();
@@ -65,7 +72,7 @@ public class CreateUserActivity extends AppCompatActivity {
                                     Toast.makeText(context, "Erro ao cadastrar: " + response.body().getMessage(), Toast.LENGTH_LONG).show();
                                 }
                             } else {
-                                Toast.makeText(context, "Erro ao cadastrar usuário, verifique os dados e tente novamente:", Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, "Erro ao cadastrar usuário, verifique os dados e tente novamente", Toast.LENGTH_LONG).show();
                             }
                         }
                         @Override
