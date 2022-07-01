@@ -49,13 +49,6 @@ public class MyEventsFragment extends Fragment {
         City city = new City("1", "Presidente Getúlio", state);
         Field field = new Field("1", "COMBAT HILL", city);
         Date date = new Date();
-        eventList.add(new Event("2",
-                "COMBAT HILL Junina",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
         eventList.add(new Event("1",
                 "Evento COMBAT HILL",
                 date,
@@ -84,104 +77,7 @@ public class MyEventsFragment extends Fragment {
                 "Regras padrão",
                 "R$ 10,00",
                 "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
+
         recyclerView.setAdapter(new EventAdapter(getActivity(), eventList));
 //        Call<FetchEventResponse> call = new RetrofitInitializer().event().fetchAllEvents();
 //        call.enqueue(new Callback<FetchEventResponse>() {
