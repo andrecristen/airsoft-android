@@ -1,4 +1,4 @@
-package com.ddm.airsoftorganize.fragments.my_events;
+package com.ddm.airsoftorganize.fragments.events;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.ddm.airsoftorganize.databinding.FragmentGalleryBinding;
+import com.ddm.airsoftorganize.databinding.FragmentTeamBinding;
 
 public class TeamFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentTeamBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        TeamViewModel galleryViewModel =
+        TeamViewModel teamViewModel =
                 new ViewModelProvider(this).get(TeamViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentTeamBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textTeam;
+        teamViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
