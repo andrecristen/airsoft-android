@@ -33,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,42 +56,46 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProgressDialog progress = new ProgressDialog(context);
-                progress.setTitle("Carregando..");
-                progress.setMessage("Aguarde a validação de login...");
-                progress.setCancelable(false);
-                progress.show();
                 EditText login = findViewById(R.id.loginUsername);
                 EditText password = findViewById(R.id.loginPassword);
-                RequestBody requestBody = new MultipartBody.Builder()
-                        .setType(MultipartBody.FORM)
-                        .addFormDataPart("login", login.getText().toString())
-                        .addFormDataPart("password", password.getText().toString())
-                        .build();
-                Call<AuthResponse> call = new RetrofitInitializer().auth().executeAuth(requestBody);
-                call.enqueue(new Callback<AuthResponse>() {
-                    @Override
-                    public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
-                        progress.dismiss();
-                        if (response.body() != null) {
-                            if (response.body().getSuccess().equals("true") && !response.body().getToken().isEmpty()) {
-                                UserSession.getInstance(response.body().getToken());
-                                Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_LONG).show();
-                                startHome();
+                if(isEmpty(login) || isEmpty(password)) {
+                    Toast.makeText(context, "E-mail e(ou) Senha incorreto(s)", Toast.LENGTH_LONG).show();
+                }else{
+                    ProgressDialog progress = new ProgressDialog(context);
+                    progress.setTitle("Carregando..");
+                    progress.setMessage("Aguarde a validação de login...");
+                    progress.setCancelable(false);
+                    progress.show();
+                    RequestBody requestBody = new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart("login", login.getText().toString())
+                            .addFormDataPart("password", password.getText().toString())
+                            .build();
+                    Call<AuthResponse> call = new RetrofitInitializer().auth().executeAuth(requestBody);
+                    call.enqueue(new Callback<AuthResponse>() {
+                        @Override
+                        public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+                            progress.dismiss();
+                            if (response.body() != null) {
+                                if (response.body().getSuccess().equals("true") && !response.body().getToken().isEmpty()) {
+                                    UserSession.getInstance(response.body().getToken());
+                                    Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_LONG).show();
+                                    startHome();
+                                } else {
+                                    Toast.makeText(context, "Erro ao efetuar login: " + response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                }
                             } else {
-                                Toast.makeText(context, "Erro ao efetuar login: " + response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, "Erro ao efetuar login, verifique os dados e tente novamente.", Toast.LENGTH_LONG).show();
                             }
-                        } else {
-                            Toast.makeText(context, "Erro ao efetuar login, verifique os dados e tente novamente.", Toast.LENGTH_LONG).show();
                         }
-                    }
-                    @Override
-                    public void onFailure(Call<AuthResponse> call, Throwable t) {
-                        progress.dismiss();
-                        Toast.makeText(context, "Falha na requisição", Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
+                        @Override
+                        public void onFailure(Call<AuthResponse> call, Throwable t) {
+                            progress.dismiss();
+                            Toast.makeText(context, "Falha na requisição", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                   }
+                }
         });
     }
 
