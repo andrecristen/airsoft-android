@@ -22,11 +22,7 @@ public class TeamFragment extends Fragment {
                 new ViewModelProvider(this).get(TeamViewModel.class);
 
         binding = FragmentTeamBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textTeam;
-        teamViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        return binding.getRoot();
     }
 
     @Override

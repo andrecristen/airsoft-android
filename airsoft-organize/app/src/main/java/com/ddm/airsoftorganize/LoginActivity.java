@@ -2,7 +2,6 @@ package com.ddm.airsoftorganize;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,15 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.ddm.airsoftorganize.response.AuthResponse;
+import com.ddm.airsoftorganize.controller.UserController;
 import com.ddm.airsoftorganize.models.UserSession;
-import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
-
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,7 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         if (!UserSession.getInstance(UserSession.tokenEmptySession).token.equals(UserSession.tokenEmptySession)) {
-            startHome();
+            Intent home = new Intent(context, HomeActivity.class);
+            startActivity(home);
         }
     }
 
@@ -60,47 +53,12 @@ public class LoginActivity extends AppCompatActivity {
                 EditText password = findViewById(R.id.loginPassword);
                 if(isEmpty(login) || isEmpty(password)) {
                     Toast.makeText(context, "E-mail e(ou) Senha incorreto(s)", Toast.LENGTH_LONG).show();
-                }else{
-                    ProgressDialog progress = new ProgressDialog(context);
-                    progress.setTitle("Carregando..");
-                    progress.setMessage("Aguarde a validação de login...");
-                    progress.setCancelable(false);
-                    progress.show();
-                    RequestBody requestBody = new MultipartBody.Builder()
-                            .setType(MultipartBody.FORM)
-                            .addFormDataPart("login", login.getText().toString())
-                            .addFormDataPart("password", password.getText().toString())
-                            .build();
-                    Call<AuthResponse> call = new RetrofitInitializer().auth().executeAuth(requestBody);
-                    call.enqueue(new Callback<AuthResponse>() {
-                        @Override
-                        public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
-                            progress.dismiss();
-                            if (response.body() != null) {
-                                if (response.body().getSuccess().equals("true") && !response.body().getToken().isEmpty()) {
-                                    UserSession.getInstance(response.body().getToken());
-                                    Toast.makeText(context, "Login efetuado com sucesso", Toast.LENGTH_LONG).show();
-                                    startHome();
-                                } else {
-                                    Toast.makeText(context, "Erro ao efetuar login: " + response.body().getMessage(), Toast.LENGTH_LONG).show();
-                                }
-                            } else {
-                                Toast.makeText(context, "Erro ao efetuar login, verifique os dados e tente novamente.", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                        @Override
-                        public void onFailure(Call<AuthResponse> call, Throwable t) {
-                            progress.dismiss();
-                            Toast.makeText(context, "Falha na requisição", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                   }
+                } else {
+                    UserController userController = new UserController();
+                    userController.login(login.getText().toString(), password.getText().toString(), context);
                 }
+            }
         });
     }
 
-    public void startHome() {
-        Intent home = new Intent(context, HomeActivity.class);
-        startActivity(home);
-    }
 }

@@ -1,6 +1,7 @@
 package com.ddm.airsoftorganize.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,9 +38,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull EventAdapter.ViewHolder holder, int position) {
-        // TODO: 29/06/2022 coloquei aq por enquanto 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         holder.eventName.setText(eventList.get(position).getName());
         holder.eventId.setText(eventList.get(position).getField().getNome());
         holder.eventCost.setText(eventList.get(position).getCost());

@@ -5,13 +5,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Event {
+
     private String id;
     private String name;
     private Date initalDate;
     private Date finalDate;
     private String rules;
     private String cost;
-    private String image_url;
+    private String imageUrl;
     private Field field;
 
     @Override
@@ -23,7 +24,7 @@ public class Event {
                 ", finalDate=" + finalDate +
                 ", rules='" + rules + '\'' +
                 ", cost='" + cost + '\'' +
-                ", image_url='" + image_url + '\'' +
+                ", image_url='" + imageUrl + '\'' +
                 ", field=" + field +
                 '}';
     }
@@ -76,12 +77,12 @@ public class Event {
         this.cost = cost;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Field getField() {
@@ -92,14 +93,14 @@ public class Event {
         this.field = field;
     }
 
-    public Event(String id, String name, Date initalDate, Date finalDate, String rules, String cost, String image_url, Field field) {
+    public Event(String id, String name, Date initalDate, Date finalDate, String rules, String cost, String imageUrl, Field field) {
         this.id = id;
         this.name = name;
         this.initalDate = initalDate;
         this.finalDate = finalDate;
         this.rules = rules;
         this.cost = cost;
-        this.image_url = image_url;
+        this.imageUrl = imageUrl;
         this.field = field;
     }
 }

@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_event_history"
-        android:name="com.ddm.airsoftorganize.fragments.account.AccountFragment"
+        android:name="com.ddm.airsoftorganize.fragments.my_registrations.MyRegistrationsFragment"
         android:label="@string/menu_event_history"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_my_registrations" />
 </navigation>
