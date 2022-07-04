@@ -2,21 +2,23 @@ package com.ddm.airsoftorganize.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.
-        recyclerview.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ddm.airsoftorganize.R;
 import com.ddm.airsoftorganize.models.Event;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
@@ -43,6 +45,17 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         holder.eventId.setText(eventList.get(position).getField().getNome());
         holder.eventCost.setText(eventList.get(position).getCost());
         holder.eventInitialDate.setText(formatter.format(eventList.get(position).getInitalDate()));
+        Date currentDate = new Date();
+        currentDate.setHours(0);
+        currentDate.setMinutes(0);
+        currentDate.setSeconds(0);
+        long timeInitial = eventList.get(position).getInitalDate().getTime();
+        long timeCurrent = currentDate.getTime();
+        if (timeInitial >= timeCurrent) {
+            holder.firstLinear.setBackgroundColor(Color.parseColor("#00ff00"));
+        } else {
+            holder.firstLinear.setBackgroundColor(Color.parseColor("#e31717"));
+        }
     }
 
     @Override
@@ -53,12 +66,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView eventName, eventId, eventInitialDate, eventCost;
+        LinearLayout firstLinear;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             eventName=itemView.findViewById(R.id.event_name);
             eventId=itemView.findViewById(R.id.event_id);
             eventInitialDate=itemView.findViewById(R.id.event_cost);
             eventCost=itemView.findViewById(R.id.event_initial_date);
+            firstLinear=itemView.findViewById(R.id.firstLinear);
         }
     }
 }

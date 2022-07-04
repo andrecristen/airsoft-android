@@ -49,6 +49,8 @@ public class MyRegistrationsFragment extends Fragment {
         City city = new City("1", "Presidente Getúlio", state);
         Field field = new Field("1", "COMBAT HILL", city);
         Date date = new Date();
+        Date datePast = new Date();
+        datePast.setDate(1);
         eventList.add(new Event("1",
                 "Evento COMBAT HILL",
                 date,
@@ -65,15 +67,15 @@ public class MyRegistrationsFragment extends Fragment {
                 "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
         eventList.add(new Event("1",
                 "Evento COMBAT HILL",
-                date,
-                date,
+                datePast,
+                datePast,
                 "Regras padrão",
                 "R$ 10,00",
                 "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
         eventList.add(new Event("1",
                 "Evento COMBAT HILL",
-                date,
-                date,
+                datePast,
+                datePast,
                 "Regras padrão",
                 "R$ 10,00",
                 "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
