@@ -23,14 +23,23 @@
         <entry key="..\:/Projetos/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_gallery.xml" value="0.358695652173913" />
         <entry key="..\:/Projetos/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_home.xml" value="0.358695652173913" />
         <entry key="..\:/Projetos/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_slideshow.xml" value="0.358695652173913" />
+        <entry key="..\:/Projetos/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_team.xml" value="0.358695652173913" />
         <entry key="..\:/Projetos/airsoft-android/airsoft-organize/app/src/main/res/layout/nav_header_home.xml" value="0.358695652173913" />
         <entry key="..\:/Projetos/airsoft-android/airsoft-organize/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/airsoft-android/airsoft-organize/app/src/main/res/menu/home.xml" value="0.36666666666666664" />
+        <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/activity_create_user.xml" value="0.1983695652173913" />
         <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/activity_home.xml" value="0.1644021739130435" />
+        <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/activity_login.xml" value="0.1983695652173913" />
+        <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/app_bar_home.xml" value="0.1983695652173913" />
+        <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/content_home.xml" value="0.1983695652173913" />
         <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/event_item.xml" value="0.25" />
+        <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_event.xml" value="0.1983695652173913" />
         <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_gallery.xml" value="0.10104166666666667" />
         <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_slideshow.xml" value="0.10104166666666667" />
+        <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_team.xml" value="0.1983695652173913" />
+        <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/fragment_user_team.xml" value="0.1983695652173913" />
         <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/layout/nav_header_home.xml" value="0.1644021739130435" />
+        <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/menu/activity_main_drawer.xml" value="0.2" />
         <entry key="..\:/UDESC2022/airsoft-android/airsoft-organize/app/src/main/res/menu/home.xml" value="0.25" />
       </map>
     </option>

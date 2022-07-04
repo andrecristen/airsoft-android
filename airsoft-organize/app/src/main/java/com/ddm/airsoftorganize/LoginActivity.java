@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 EditText login = findViewById(R.id.loginUsername);
                 EditText password = findViewById(R.id.loginPassword);
                 if(isEmpty(login) || isEmpty(password)) {
-                    Toast.makeText(context, "E-mail e(ou) Senha incorreto(s)", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Erro ao efetuar login, verifique os dados e tente novamente.", Toast.LENGTH_LONG).show();
                 } else {
                     UserController userController = new UserController();
                     userController.login(login.getText().toString(), password.getText().toString(), context);

@@ -15,7 +15,6 @@
         android:gravity="center_horizontal"
         android:text="Você ainda não foi adicionado a nenhuma equipe"
         android:textAlignment="center"
-        android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold" />
 

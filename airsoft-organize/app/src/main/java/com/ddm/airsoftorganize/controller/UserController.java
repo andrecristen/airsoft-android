@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.ddm.airsoftorganize.HomeActivity;
+import com.ddm.airsoftorganize.LoginActivity;
 import com.ddm.airsoftorganize.models.UserSession;
 import com.ddm.airsoftorganize.response.AuthResponse;
 import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
@@ -54,6 +55,11 @@ public class UserController {
                 Toast.makeText(context, "Falha na requisição", Toast.LENGTH_LONG).show();
             }
         });
+    }
+    public void logout(Context context){
+        UserSession.getInstance(UserSession.tokenEmptySession);
+        Intent login = new Intent(context, LoginActivity.class);
+        context.startActivity(login);
     }
 
 }
