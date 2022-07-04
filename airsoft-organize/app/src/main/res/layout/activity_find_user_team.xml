@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FindUserTeamActivity">
+
+    <EditText
+        android:id="@+id/findNameTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/background_field"
+        android:drawableLeft="?android:attr/actionModeWebSearchDrawable"
+        android:drawablePadding="5dp"
+        android:drawingCacheQuality="high"
+        android:hint="Nome da equipe"
+        android:padding="20dp"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey" />
+
+    <TextView
+        android:id="@+id/notFoudTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Nenhuma equipe encontrada 😢"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30dp" />
+</LinearLayout>
