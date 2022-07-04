@@ -17,6 +17,11 @@
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.AirsoftOrganize.NoActionBar" />
         <activity
+            android:name=".EventDetailActivity"
+            android:exported="false"
+            android:label="@string/title_event_detail"
+            android:theme="@style/Theme.AirsoftOrganize.NoActionBar" />
+        <activity
             android:name=".CreateUserActivity"
             android:exported="false" />
         <activity

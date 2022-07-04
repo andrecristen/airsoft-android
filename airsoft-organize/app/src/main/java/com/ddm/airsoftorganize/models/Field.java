@@ -2,14 +2,14 @@ package com.ddm.airsoftorganize.models;
 
 public class Field {
     private String id;
-    private String nome;
+    private String name;
     private City city;
 
     @Override
     public String toString() {
         return "Field{" +
                 "id='" + id + '\'' +
-                ", nome='" + nome + '\'' +
+                ", nome='" + name + '\'' +
                 ", city=" + city +
                 '}';
     }
@@ -22,12 +22,12 @@ public class Field {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.name = nome;
     }
 
     public City getCity() {
@@ -40,7 +40,7 @@ public class Field {
 
     public Field(String id, String nome, City city) {
         this.id = id;
-        this.nome = nome;
+        this.name = nome;
         this.city = city;
     }
 }

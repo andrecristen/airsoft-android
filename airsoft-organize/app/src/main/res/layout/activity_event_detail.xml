@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_account"
+    android:orientation="vertical"
+    tools:context=".EventDetailActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/eventDetailImageUrl"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        app:srcCompat="@mipmap/example_field_image"
+        app:strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/eventDetailName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:padding="5dp"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey" />
+        <TextView
+            android:id="@+id/eventDetailInitialDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:drawablePadding="5dp"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="@color/grey"
+            android:textColorHint="@color/grey" />
+        <TextView
+            android:id="@+id/eventDetailRules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:drawablePadding="5dp"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="@color/grey"
+            android:textColorHint="@color/grey" />
+
+        <TextView
+            android:id="@+id/eventDetailCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:drawablePadding="5dp"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="@color/grey"
+            android:textColorHint="@color/grey" />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Entrar na sessão"
+        android:textColor="@color/white" />
+</LinearLayout>

@@ -1,10 +1,15 @@
 package com.ddm.airsoftorganize.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Event {
+public class Event implements Serializable, Parcelable {
 
     private String id;
     private String name;
@@ -14,6 +19,28 @@ public class Event {
     private String cost;
     private String imageUrl;
     private Field field;
+
+    protected Event(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        initalDate = new Date(in.readString());
+        finalDate = new Date(in.readString());
+        rules = in.readString();
+        cost = in.readString();
+        imageUrl = in.readString();
+    }
+
+    public static final Creator<Event> CREATOR = new Creator<Event>() {
+        @Override
+        public Event createFromParcel(Parcel in) {
+            return new Event(in);
+        }
+
+        @Override
+        public Event[] newArray(int size) {
+            return new Event[size];
+        }
+    };
 
     @Override
     public String toString() {
@@ -102,5 +129,23 @@ public class Event {
         this.cost = cost;
         this.imageUrl = imageUrl;
         this.field = field;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        parcel.writeString(id);
+        parcel.writeString(name);
+        parcel.writeString(formatter.format(initalDate));
+        parcel.writeString(formatter.format(finalDate));
+        parcel.writeString(rules);
+        parcel.writeString(cost);
+        parcel.writeString(imageUrl);
+        parcel.writeString(field.getName());
     }
 }

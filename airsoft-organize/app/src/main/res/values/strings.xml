@@ -2,6 +2,7 @@
     <string name="app_name">Airsoft Organize</string>
     <string name="logo">logo</string>
     <string name="title_activity_home">Tela inicial</string>
+    <string name="title_event_detail">Detalhes do evento</string>
     <string name="nav_header_desc">Airsoft Organize</string>
     <string name="action_settings">Sair</string>
 
