@@ -1,8 +1,8 @@
 package com.ddm.airsoftorganize.retrofit;
 
-import com.ddm.airsoftorganize.service.AuthService;
-import com.ddm.airsoftorganize.service.EventService;
-import com.ddm.airsoftorganize.service.UserService;
+import com.ddm.airsoftorganize.retrofit.service.AuthService;
+import com.ddm.airsoftorganize.retrofit.service.EventService;
+import com.ddm.airsoftorganize.retrofit.service.UserService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

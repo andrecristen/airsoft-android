@@ -1,4 +1,4 @@
-package com.ddm.airsoftorganize.service;
+package com.ddm.airsoftorganize.retrofit.service;
 
 import com.ddm.airsoftorganize.response.DefaultResponse;
 

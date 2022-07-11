@@ -1,11 +1,8 @@
-package com.ddm.airsoftorganize.service;
+package com.ddm.airsoftorganize.retrofit.service;
 
-import com.ddm.airsoftorganize.response.DefaultResponse;
 import com.ddm.airsoftorganize.response.FetchEventResponse;
 
-import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
 
 public interface EventService {
