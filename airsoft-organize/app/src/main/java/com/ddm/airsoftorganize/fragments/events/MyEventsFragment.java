@@ -1,5 +1,6 @@
 package com.ddm.airsoftorganize.fragments.events;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -22,6 +23,7 @@ import com.ddm.airsoftorganize.models.City;
 import com.ddm.airsoftorganize.models.Event;
 import com.ddm.airsoftorganize.models.Field;
 import com.ddm.airsoftorganize.models.State;
+import com.ddm.airsoftorganize.response.EventResponse;
 import com.ddm.airsoftorganize.response.FetchEventResponse;
 import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
 
@@ -48,54 +50,30 @@ public class MyEventsFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        List<Event> eventList = new ArrayList<>();
-        State state = new State("1","Santa Catarina", "SC");
-        City city = new City("1", "Presidente Getúlio", state);
-        Field field = new Field("1", "COMBAT HILL", city);
-        Date date = new Date();
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-        eventList.add(new Event("1",
-                "Evento COMBAT HILL",
-                date,
-                date,
-                "Regras padrão",
-                "R$ 10,00",
-                "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
-
-        recyclerView.setAdapter(new EventAdapter(getActivity(), eventList));
+        ProgressDialog progress = new ProgressDialog(this.getContext());
+        progress.setTitle("Carregando..");
+        progress.setMessage("Realizando busca de eventos...");
+        progress.setCancelable(false);
+        progress.show();
+        List<EventResponse> eventList = new ArrayList<>();
         Call<FetchEventResponse> call = new RetrofitInitializer().event().fetchAllEvents();
         call.enqueue(new Callback<FetchEventResponse>() {
             @Override
             public void onResponse(Call<FetchEventResponse> call, Response<FetchEventResponse> response) {
-                if(response.isSuccessful()){
-
-                }else{
-                    
+                progress.dismiss();
+                if (response.isSuccessful()) {
+                    for (EventResponse event : response.body().getEventos()) {
+                        eventList.add(event);
+                    }
+                    recyclerView.setAdapter(new EventAdapter(getActivity(), eventList));
+                } else {
+                    Toast.makeText(getActivity(), "Não foi possível realizar a busca ", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<FetchEventResponse> call, Throwable t) {
+                progress.dismiss();
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

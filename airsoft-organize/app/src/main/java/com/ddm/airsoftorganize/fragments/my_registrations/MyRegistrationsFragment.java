@@ -80,7 +80,7 @@ public class MyRegistrationsFragment extends Fragment {
                 "R$ 10,00",
                 "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
 
-        recyclerView.setAdapter(new EventAdapter(getActivity(), eventList));
+        //recyclerView.setAdapter(new EventAdapter(getActivity(), eventList));
     }
 
     @Override
