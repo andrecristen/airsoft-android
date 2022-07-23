@@ -1,6 +1,7 @@
 package com.ddm.airsoftorganize.retrofit;
 
 import com.ddm.airsoftorganize.retrofit.service.AuthService;
+import com.ddm.airsoftorganize.retrofit.service.ClassOperatorService;
 import com.ddm.airsoftorganize.retrofit.service.EventService;
 import com.ddm.airsoftorganize.retrofit.service.UserService;
 
@@ -27,7 +28,7 @@ public class RetrofitInitializer {
                 .build();
     }
 
-    public UserService user(){
+    public UserService user() {
         return retrofit.create(UserService.class);
     }
 
@@ -37,6 +38,10 @@ public class RetrofitInitializer {
 
     public EventService event() {
         return retrofit.create(EventService.class);
+    }
+
+    public ClassOperatorService classOperator() {
+        return retrofit.create(ClassOperatorService.class);
     }
 
 }

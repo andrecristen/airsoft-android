@@ -43,8 +43,8 @@ public class MyEventsFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         ProgressDialog progress = new ProgressDialog(this.getContext());
-        progress.setTitle("Carregando..");
-        progress.setMessage("Realizando busca de eventos...");
+        progress.setTitle("Carregando");
+        progress.setMessage("Realizando busca de eventos.");
         progress.setCancelable(false);
         progress.show();
         List<EventResponse> eventList = new ArrayList<>();

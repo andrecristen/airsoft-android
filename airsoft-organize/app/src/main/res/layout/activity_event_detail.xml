@@ -15,59 +15,93 @@
         app:srcCompat="@mipmap/example_field_image"
         app:strokeWidth="1dp" />
 
-    <TextView
-        android:id="@+id/eventDetailName"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:padding="5dp"
-        android:textColor="@color/grey"
-        android:textColorHint="@color/grey" />
-        <TextView
-            android:id="@+id/eventDetailInitialDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:drawablePadding="5dp"
-            android:padding="5dp"
-            android:text=""
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
-        <TextView
-            android:id="@+id/eventDetailRules"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:drawablePadding="5dp"
-            android:padding="5dp"
-            android:text=""
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/eventDetailCost"
+        <LinearLayout
+            android:id="@+id/content_event_detail_scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:drawablePadding="5dp"
-            android:padding="5dp"
-            android:text=""
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/createPassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Entrar na sessão"
-        android:textColor="@color/white" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dateEventDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data do Evento:" />
+
+            <TextView
+                android:id="@+id/eventDetailInitialDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey" />
+
+            <TextView
+                android:id="@+id/nameEventDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome do Evento:" />
+
+            <TextView
+                android:id="@+id/eventDetailName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey" />
+
+            <TextView
+                android:id="@+id/rulesEventDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Regras do Evento:" />
+
+            <TextView
+                android:id="@+id/eventDetailRules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey" />
+
+            <TextView
+                android:id="@+id/coustEventDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custo Evento:" />
+
+            <TextView
+                android:id="@+id/eventDetailCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey" />
+
+            <TextView
+                android:id="@+id/teamEventDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Times do Evento:" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

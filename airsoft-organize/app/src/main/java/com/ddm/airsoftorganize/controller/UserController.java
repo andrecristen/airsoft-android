@@ -26,8 +26,8 @@ public class UserController {
                            String password,
                            String confirmPassowrd) {
         ProgressDialog progress = new ProgressDialog(context);
-        progress.setTitle("Carregando..");
-        progress.setMessage("Aguarde a validação de cadastro...");
+        progress.setTitle("Carregando");
+        progress.setMessage("Aguarde a validação de cadastro.");
         progress.setCancelable(false);
         progress.show();
         if (password.equals(confirmPassowrd)){
@@ -70,8 +70,8 @@ public class UserController {
 
     public void login(String login, String password, Context context) {
         ProgressDialog progress = new ProgressDialog(context);
-        progress.setTitle("Carregando..");
-        progress.setMessage("Aguarde a validação de login...");
+        progress.setTitle("Carregando");
+        progress.setMessage("Aguarde a validação de login.");
         progress.setCancelable(false);
         progress.show();
         RequestBody requestBody = new MultipartBody.Builder()
