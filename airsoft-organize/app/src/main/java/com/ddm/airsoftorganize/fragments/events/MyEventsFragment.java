@@ -1,13 +1,10 @@
 package com.ddm.airsoftorganize.fragments.events;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,20 +13,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ddm.airsoftorganize.EventDetailActivity;
 import com.ddm.airsoftorganize.R;
 import com.ddm.airsoftorganize.adapter.EventAdapter;
-import com.ddm.airsoftorganize.models.City;
-import com.ddm.airsoftorganize.models.Event;
-import com.ddm.airsoftorganize.models.Field;
-import com.ddm.airsoftorganize.models.State;
 import com.ddm.airsoftorganize.models.UserSession;
 import com.ddm.airsoftorganize.response.EventResponse;
 import com.ddm.airsoftorganize.response.FetchEventResponse;
 import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
