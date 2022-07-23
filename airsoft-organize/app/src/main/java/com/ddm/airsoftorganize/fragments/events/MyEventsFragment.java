@@ -23,6 +23,7 @@ import com.ddm.airsoftorganize.models.City;
 import com.ddm.airsoftorganize.models.Event;
 import com.ddm.airsoftorganize.models.Field;
 import com.ddm.airsoftorganize.models.State;
+import com.ddm.airsoftorganize.models.UserSession;
 import com.ddm.airsoftorganize.response.EventResponse;
 import com.ddm.airsoftorganize.response.FetchEventResponse;
 import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
@@ -56,7 +57,8 @@ public class MyEventsFragment extends Fragment {
         progress.setCancelable(false);
         progress.show();
         List<EventResponse> eventList = new ArrayList<>();
-        Call<FetchEventResponse> call = new RetrofitInitializer().event().fetchAllEvents();
+        String token = UserSession.getInstance(null).token;
+        Call<FetchEventResponse> call = new RetrofitInitializer().event().fetchAllEvents(token);
         call.enqueue(new Callback<FetchEventResponse>() {
             @Override
             public void onResponse(Call<FetchEventResponse> call, Response<FetchEventResponse> response) {
@@ -67,7 +69,7 @@ public class MyEventsFragment extends Fragment {
                     }
                     recyclerView.setAdapter(new EventAdapter(getActivity(), eventList));
                 } else {
-                    Toast.makeText(getActivity(), "Não foi possível realizar a busca ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Não foi possível realizar a busca de eventos.", Toast.LENGTH_SHORT).show();
                 }
             }
 
