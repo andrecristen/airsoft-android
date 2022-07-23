@@ -83,23 +83,22 @@ public class MyEventsFragment extends Fragment {
                 "https://media-cdn.tripadvisor.com/media/photo-s/13/7c/f0/75/airsoft-field.jpg",field));
 
         recyclerView.setAdapter(new EventAdapter(getActivity(), eventList));
-//        Call<FetchEventResponse> call = new RetrofitInitializer().event().fetchAllEvents();
-//        call.enqueue(new Callback<FetchEventResponse>() {
-//            @Override
-//            public void onResponse(Call<FetchEventResponse> call, Response<FetchEventResponse> response) {
-//                if(response.isSuccessful()){
-//                    eventList=response.body().getEventList();
-//                    recyclerView.setAdapter(new EventAdapter(getActivity(), eventList));
-//                }else{
-//                    Toast.makeText(getActivity(), response.body().getError(), Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<FetchEventResponse> call, Throwable t) {
-//                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        Call<FetchEventResponse> call = new RetrofitInitializer().event().fetchAllEvents();
+        call.enqueue(new Callback<FetchEventResponse>() {
+            @Override
+            public void onResponse(Call<FetchEventResponse> call, Response<FetchEventResponse> response) {
+                if(response.isSuccessful()){
+
+                }else{
+                    
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FetchEventResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
