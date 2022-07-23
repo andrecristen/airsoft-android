@@ -18,6 +18,8 @@ import com.ddm.airsoftorganize.EventDetailActivity;
 import com.ddm.airsoftorganize.HomeActivity;
 import com.ddm.airsoftorganize.R;
 import com.ddm.airsoftorganize.models.Event;
+import com.ddm.airsoftorganize.response.EventResponse;
+import com.ddm.airsoftorganize.util.DateTimeUtil;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -27,10 +29,10 @@ import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
 
-    List<Event> eventList;
+    List<EventResponse> eventList;
     Context context;
 
-    public EventAdapter(Context context, List<Event> eventList) {
+    public EventAdapter(Context context, List<EventResponse> eventList) {
         this.context = context;
         this.eventList = eventList;
     }
@@ -46,27 +48,26 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull EventAdapter.ViewHolder holder, int position) {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        holder.eventName.setText(eventList.get(position).getName());
-        holder.eventId.setText(eventList.get(position).getField().getName());
-        holder.eventCost.setText(eventList.get(position).getCost());
-
-        holder.eventInitialDate.setText(formatter.format(eventList.get(position).getInitalDate()));
-        Date currentDate = new Date();
-        currentDate.setHours(0);
-        currentDate.setMinutes(0);
-        currentDate.setSeconds(0);
+        holder.eventName.setText(eventList.get(position).getNome());
+        holder.eventId.setText(eventList.get(position).getCampo().getNome());
+        holder.eventCost.setText(eventList.get(position).getId().toString());
+        Date dataInicio = DateTimeUtil.stringToDateTime(eventList.get(position).getDataInicio(), DateTimeUtil.FORMAT_DATE_DEFAULT);
+        holder.eventInitialDate.setText(DateTimeUtil.dateTimeToString(dataInicio, DateTimeUtil.FORMAT_DATE_BRAZILIAN));
         final int pos = position;
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Event event = eventList.get(pos);
+                EventResponse event = eventList.get(pos);
                 Intent intent = new Intent(view.getContext(), EventDetailActivity.class);
-                intent.putExtra("event", (Parcelable) event);
+                intent.putExtra("event", event.getId().toString());
                 view.getContext().startActivity(intent);
             }
         });
-        long timeInitial = eventList.get(position).getInitalDate().getTime();
+        Date currentDate = new Date();
+        currentDate.setHours(0);
+        currentDate.setMinutes(0);
+        currentDate.setSeconds(0);
+        long timeInitial = dataInicio.getTime();
         long timeCurrent = currentDate.getTime();
         if (timeInitial >= timeCurrent) {
             holder.firstLinear.setBackgroundColor(Color.parseColor("#57db57"));
@@ -84,13 +85,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
         TextView eventName, eventId, eventInitialDate, eventCost;
         LinearLayout firstLinear;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            eventName=itemView.findViewById(R.id.event_name);
-            eventId=itemView.findViewById(R.id.event_id);
-            eventInitialDate=itemView.findViewById(R.id.event_cost);
-            eventCost=itemView.findViewById(R.id.event_initial_date);
-            firstLinear=itemView.findViewById(R.id.firstLinear);
+            eventName = itemView.findViewById(R.id.event_name);
+            eventId = itemView.findViewById(R.id.event_id);
+            eventInitialDate = itemView.findViewById(R.id.event_cost);
+            eventCost = itemView.findViewById(R.id.event_initial_date);
+            firstLinear = itemView.findViewById(R.id.firstLinear);
         }
     }
 }

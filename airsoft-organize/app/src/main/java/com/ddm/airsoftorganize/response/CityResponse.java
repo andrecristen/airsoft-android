@@ -1,7 +1,6 @@
 package com.ddm.airsoftorganize.response;
 
 import java.util.HashMap;
-        import java.util.List;
         import java.util.Map;
         import com.fasterxml.jackson.annotation.JsonAnyGetter;
         import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -12,36 +11,49 @@ import java.util.HashMap;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "success",
-        "eventos"
+        "id",
+        "nome",
+        "estado"
 })
-public class FetchEventResponse {
+public class CityResponse {
 
-    @JsonProperty("success")
-    private Boolean success;
-    @JsonProperty("eventos")
-    private List<EventResponse> eventos = null;
+    @JsonProperty("id")
+    private Integer id;
+    @JsonProperty("nome")
+    private String nome;
+    @JsonProperty("estado")
+    private StateResponse estado;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("success")
-    public Boolean getSuccess() {
-        return success;
+    @JsonProperty("id")
+    public Integer getId() {
+        return id;
     }
 
-    @JsonProperty("success")
-    public void setSuccess(Boolean success) {
-        this.success = success;
+    @JsonProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    @JsonProperty("eventos")
-    public List<EventResponse> getEventos() {
-        return eventos;
+    @JsonProperty("nome")
+    public String getNome() {
+        return nome;
     }
 
-    @JsonProperty("eventos")
-    public void setEventos(List<EventResponse> eventos) {
-        this.eventos = eventos;
+    @JsonProperty("nome")
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @JsonProperty("estado")
+    public StateResponse getEstado() {
+        return estado;
+    }
+
+    @JsonProperty("estado")
+    public void setEstado(StateResponse estado) {
+        this.estado = estado;
     }
 
     @JsonAnyGetter
@@ -55,3 +67,4 @@ public class FetchEventResponse {
     }
 
 }
+

@@ -1,26 +1,25 @@
 package com.ddm.airsoftorganize.response;
 
 import java.util.HashMap;
-        import java.util.List;
-        import java.util.Map;
-        import com.fasterxml.jackson.annotation.JsonAnyGetter;
-        import com.fasterxml.jackson.annotation.JsonAnySetter;
-        import com.fasterxml.jackson.annotation.JsonIgnore;
-        import com.fasterxml.jackson.annotation.JsonInclude;
-        import com.fasterxml.jackson.annotation.JsonProperty;
-        import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "success",
-        "eventos"
+        "evento"
 })
-public class FetchEventResponse {
+public class EventDetailResponse {
 
     @JsonProperty("success")
     private Boolean success;
-    @JsonProperty("eventos")
-    private List<EventResponse> eventos = null;
+    @JsonProperty("evento")
+    private EventDetailedResponse evento;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -34,14 +33,14 @@ public class FetchEventResponse {
         this.success = success;
     }
 
-    @JsonProperty("eventos")
-    public List<EventResponse> getEventos() {
-        return eventos;
+    @JsonProperty("evento")
+    public EventDetailedResponse getEvento() {
+        return evento;
     }
 
-    @JsonProperty("eventos")
-    public void setEventos(List<EventResponse> eventos) {
-        this.eventos = eventos;
+    @JsonProperty("evento")
+    public void setEvento(EventDetailedResponse evento) {
+        this.evento = evento;
     }
 
     @JsonAnyGetter

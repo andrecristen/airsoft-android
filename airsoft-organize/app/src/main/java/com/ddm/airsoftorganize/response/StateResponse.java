@@ -1,7 +1,6 @@
 package com.ddm.airsoftorganize.response;
 
 import java.util.HashMap;
-        import java.util.List;
         import java.util.Map;
         import com.fasterxml.jackson.annotation.JsonAnyGetter;
         import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -12,36 +11,36 @@ import java.util.HashMap;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "success",
-        "eventos"
+        "nome",
+        "sigla"
 })
-public class FetchEventResponse {
+public class StateResponse {
 
-    @JsonProperty("success")
-    private Boolean success;
-    @JsonProperty("eventos")
-    private List<EventResponse> eventos = null;
+    @JsonProperty("nome")
+    private String nome;
+    @JsonProperty("sigla")
+    private String sigla;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("success")
-    public Boolean getSuccess() {
-        return success;
+    @JsonProperty("nome")
+    public String getNome() {
+        return nome;
     }
 
-    @JsonProperty("success")
-    public void setSuccess(Boolean success) {
-        this.success = success;
+    @JsonProperty("nome")
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    @JsonProperty("eventos")
-    public List<EventResponse> getEventos() {
-        return eventos;
+    @JsonProperty("sigla")
+    public String getSigla() {
+        return sigla;
     }
 
-    @JsonProperty("eventos")
-    public void setEventos(List<EventResponse> eventos) {
-        this.eventos = eventos;
+    @JsonProperty("sigla")
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
     @JsonAnyGetter
