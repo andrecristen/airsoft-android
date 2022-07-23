@@ -24,13 +24,18 @@
         android:textColor="@color/grey"
         android:textColorHint="@color/grey" />
 
-    <TextView
-        android:id="@+id/notFoudTeam"
+<!--    <TextView-->
+<!--        android:id="@+id/notFoudTeam"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:text="Nenhuma equipe encontrada 😢"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="30dp" />-->
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Nenhuma equipe encontrada 😢"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="30dp" />
+        android:id="@+id/recycleUserTeam"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>
