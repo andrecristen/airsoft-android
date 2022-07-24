@@ -17,6 +17,9 @@ public interface EventService {
     @GET("api/v1/eventosList")
     Call<FetchEventResponse> fetchAllEvents(@Query("token") String tokenUser);
 
+    @GET("api/v1/eventosList")
+    Call<EventDetailResponse> fetchAllEventsWithParams(@Body RequestBody params, @Query("token") String tokenUser);
+
     @GET("api/v1/eventoDetails/{id}")
     Call<EventDetailResponse> eventDetails(@Path("id") String id, @Query("token") String tokenUser);
 

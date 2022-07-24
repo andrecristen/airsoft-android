@@ -1,37 +1,27 @@
 package com.ddm.airsoftorganize.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Parcelable;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ddm.airsoftorganize.EventDetailActivity;
-import com.ddm.airsoftorganize.HomeActivity;
 import com.ddm.airsoftorganize.R;
-import com.ddm.airsoftorganize.models.Event;
-import com.ddm.airsoftorganize.models.UserTeam;
+import com.ddm.airsoftorganize.response.UserTeamResponse;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 
 public class UserTeamAdapter extends RecyclerView.Adapter<UserTeamAdapter.ViewHolder> {
 
-    List<UserTeam> userTeamList;
+    List<UserTeamResponse> userTeamList;
     Context context;
 
-    public UserTeamAdapter(Context context, List<UserTeam> userTeamList) {
+    public UserTeamAdapter(Context context, List<UserTeamResponse> userTeamList) {
         this.context = context;
         this.userTeamList = userTeamList;
     }
@@ -39,7 +29,7 @@ public class UserTeamAdapter extends RecyclerView.Adapter<UserTeamAdapter.ViewHo
     @NonNull
     @Override
     public UserTeamAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.event_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.user_team_item, parent, false);
         return new ViewHolder(view);
 
 
@@ -47,16 +37,26 @@ public class UserTeamAdapter extends RecyclerView.Adapter<UserTeamAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull UserTeamAdapter.ViewHolder holder, int position) {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        holder.eventName.setText(userTeamList.get(position).getName());
-        final int pos = position;
+        UserTeamResponse userTeam = userTeamList.get(position);
+        holder.userTeamName.setText(userTeam.getNome());
+        holder.userTeamCreator.setText(userTeam.getCriador());
+        holder.userTeamId.setText(userTeam.getId().toString());
+        holder.userTeamCity.setText(userTeam.getCidade().getNome() + " - " + userTeam.getCidade().getEstado().getSigla());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserTeam userTeam = userTeamList.get(pos);
-                Intent intent = new Intent(view.getContext(), EventDetailActivity.class);
-                intent.putExtra("userTeam", (Parcelable) userTeam);
-                view.getContext().startActivity(intent);
+                new AlertDialog.Builder(view.getContext())
+                        .setTitle("Confirmação")
+                        .setMessage("Deseja realmente inscrever-se na equipe " + userTeam.getNome() + "?")
+                        .setCancelable(false)
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("Não", null)
+                        .show();
             }
         });
     }
@@ -68,15 +68,14 @@ public class UserTeamAdapter extends RecyclerView.Adapter<UserTeamAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView eventName, eventId, eventInitialDate, eventCost;
-        LinearLayout firstLinear;
+        TextView userTeamName, userTeamId, userTeamCreator, userTeamCity;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            eventName=itemView.findViewById(R.id.event_name);
-            eventId=itemView.findViewById(R.id.event_id);
-            eventInitialDate=itemView.findViewById(R.id.event_cost);
-            eventCost=itemView.findViewById(R.id.event_initial_date);
-            firstLinear=itemView.findViewById(R.id.firstLinear);
+            userTeamName = itemView.findViewById(R.id.userTeam_name);
+            userTeamId = itemView.findViewById(R.id.userTeam_id);
+            userTeamCreator = itemView.findViewById(R.id.userTeam_creator);
+            userTeamCity = itemView.findViewById(R.id.userTeam_city);
         }
     }
 }

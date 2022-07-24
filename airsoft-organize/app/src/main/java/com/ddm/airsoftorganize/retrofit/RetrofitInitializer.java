@@ -4,6 +4,7 @@ import com.ddm.airsoftorganize.retrofit.service.AuthService;
 import com.ddm.airsoftorganize.retrofit.service.ClassOperatorService;
 import com.ddm.airsoftorganize.retrofit.service.EventService;
 import com.ddm.airsoftorganize.retrofit.service.UserService;
+import com.ddm.airsoftorganize.retrofit.service.UserTeamService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -42,6 +43,10 @@ public class RetrofitInitializer {
 
     public ClassOperatorService classOperator() {
         return retrofit.create(ClassOperatorService.class);
+    }
+
+    public UserTeamService userTeam() {
+        return retrofit.create(UserTeamService.class);
     }
 
 }
