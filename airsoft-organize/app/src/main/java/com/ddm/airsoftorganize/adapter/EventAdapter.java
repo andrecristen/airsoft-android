@@ -3,7 +3,6 @@ package com.ddm.airsoftorganize.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +10,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ddm.airsoftorganize.EventDetailActivity;
-import com.ddm.airsoftorganize.HomeActivity;
 import com.ddm.airsoftorganize.R;
-import com.ddm.airsoftorganize.models.Event;
 import com.ddm.airsoftorganize.response.EventResponse;
 import com.ddm.airsoftorganize.util.DateTimeUtil;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +24,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
     List<EventResponse> eventList;
     Context context;
+    Boolean isMyRegistrations = false;
 
     public EventAdapter(Context context, List<EventResponse> eventList) {
         this.context = context;
@@ -66,8 +60,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         long timeCurrent = currentDate.getTime();
         if (timeInitial >= timeCurrent) {
             holder.firstLinear.setBackgroundColor(Color.parseColor("#57db57"));
+            if (this.isMyRegistrations) {
+                holder.eventDetail.setText("Detalhes da inscrição");
+            }
         } else {
             holder.firstLinear.setBackgroundColor(Color.parseColor("#db5757"));
+            if (this.isMyRegistrations) {
+                holder.eventDetail.setText("Evento Finalizado ver informações");
+            }
         }
     }
 
@@ -88,7 +88,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView eventName, eventId, eventInitialDate, eventCost;
+        TextView eventName, eventId, eventInitialDate, eventCost, eventDetail;
         LinearLayout firstLinear;
 
         public ViewHolder(@NonNull View itemView) {
@@ -97,6 +97,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
             eventId = itemView.findViewById(R.id.event_id);
             eventInitialDate = itemView.findViewById(R.id.event_cost);
             eventCost = itemView.findViewById(R.id.event_initial_date);
+            eventDetail = itemView.findViewById(R.id.event_detail);
             firstLinear = itemView.findViewById(R.id.firstLinear);
         }
     }
