@@ -12,7 +12,6 @@
         android:id="@+id/eventDetailImageUrl"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        app:srcCompat="@mipmap/example_field_image"
         app:strokeWidth="1dp" />
 
     <ScrollView
@@ -26,10 +25,24 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/eventDetailName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/dateEventDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Data do Evento:" />
+                android:text="Data do Evento:"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/eventDetailInitialDate"
@@ -44,26 +57,11 @@
                 android:textColorHint="@color/grey" />
 
             <TextView
-                android:id="@+id/nameEventDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nome do Evento:" />
-
-            <TextView
-                android:id="@+id/eventDetailName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:padding="5dp"
-                android:textColor="@color/grey"
-                android:textColorHint="@color/grey" />
-
-            <TextView
                 android:id="@+id/rulesEventDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Regras do Evento:" />
+                android:text="Regras do Evento:"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/eventDetailRules"
@@ -81,7 +79,8 @@
                 android:id="@+id/coustEventDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Custo Evento:" />
+                android:text="Custo Evento:"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/eventDetailCost"
@@ -99,7 +98,8 @@
                 android:id="@+id/teamEventDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Times do Evento:" />
+                android:text="Times do Evento:"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

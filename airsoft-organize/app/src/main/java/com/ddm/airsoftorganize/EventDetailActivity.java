@@ -6,8 +6,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ import com.ddm.airsoftorganize.response.FetchClassOperatorResponse;
 import com.ddm.airsoftorganize.retrofit.RetrofitInitializer;
 import com.ddm.airsoftorganize.util.ArrayUtil;
 import com.ddm.airsoftorganize.util.DateTimeUtil;
+import com.ddm.airsoftorganize.util.ImageUrlSetUtil;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -66,10 +69,14 @@ public class EventDetailActivity extends AppCompatActivity {
                     getInitialDate.setText(DateTimeUtil.dateTimeToString(initialDate, DateTimeUtil.FORMAT_DATE_BRAZILIAN));
                     eventRules.setText(response.body().getEvento().getRegras());
                     eventCost.setText(response.body().getEvento().getCusto());
+                    if (response.body().getEvento().getImagem() != null) {
+                        new ImageUrlSetUtil((ImageView) findViewById(R.id.eventDetailImageUrl)).execute(response.body().getEvento().getImagem().toString());
+                    }
                     LinearLayout main_layer = (LinearLayout) findViewById(R.id.content_event_detail_scroll);
                     if (response.body().getEvento().getTimeUsuarioInscrito() != null) {
                         //Usuário já está inscrito
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                        params.gravity = Gravity.CENTER_HORIZONTAL;
                         LinearLayout layout = new LinearLayout(getApplicationContext());
                         LinearLayout.LayoutParams paramsButton = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                         layout.setOrientation(LinearLayout.VERTICAL);
@@ -91,6 +98,7 @@ public class EventDetailActivity extends AppCompatActivity {
                         //Cria um botão pra cada time para o usuário se inscrever
                         for (EventDetailedTeamResponse team : response.body().getEvento().getTimes()) {
                             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                            params.gravity = Gravity.CENTER_HORIZONTAL;
                             LinearLayout layout = new LinearLayout(getApplicationContext());
                             LinearLayout.LayoutParams paramsButton = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                             layout.setOrientation(LinearLayout.VERTICAL);
@@ -105,6 +113,7 @@ public class EventDetailActivity extends AppCompatActivity {
                                 nameEvent = "Entrar em " + team.getNome() + " (" + team.getInscritos() + ")";
                             }
                             buttonSubscribeTeam.setText(nameEvent);
+                            buttonSubscribeTeam.setPadding(20, 20, 20, 20);
                             if (team.getCor() != null) {
                                 buttonSubscribeTeam.setBackgroundColor(Color.parseColor(team.getCor().toString()));
                             }

@@ -31,7 +31,7 @@ public class UserTeamAdapter extends RecyclerView.Adapter<UserTeamAdapter.ViewHo
     List<UserTeam> userTeamList;
     Context context;
 
-    public UserTeamAdapter(Context context, List<Event> userTeamList) {
+    public UserTeamAdapter(Context context, List<UserTeam> userTeamList) {
         this.context = context;
         this.userTeamList = userTeamList;
     }

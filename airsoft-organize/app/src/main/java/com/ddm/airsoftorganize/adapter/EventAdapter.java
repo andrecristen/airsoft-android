@@ -55,10 +55,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventResponse event = eventList.get(pos);
-                Intent intent = new Intent(view.getContext(), EventDetailActivity.class);
-                intent.putExtra("event", event.getId().toString());
-                view.getContext().startActivity(intent);
+                onClickItemList(pos, view);
             }
         });
         Date currentDate = new Date();
@@ -72,6 +69,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         } else {
             holder.firstLinear.setBackgroundColor(Color.parseColor("#db5757"));
         }
+    }
+
+    /*
+     * Abre a tela de detalhes do evento
+     */
+    public void onClickItemList(Integer pos, View view) {
+        EventResponse event = eventList.get(pos);
+        Intent intent = new Intent(view.getContext(), EventDetailActivity.class);
+        intent.putExtra("event", event.getId().toString());
+        view.getContext().startActivity(intent);
     }
 
     @Override
