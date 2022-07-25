@@ -66,7 +66,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         } else {
             holder.firstLinear.setBackgroundColor(Color.parseColor("#db5757"));
             if (this.isMyRegistrations) {
-                holder.eventDetail.setText("Evento Finalizado ver informações");
+                holder.eventDetail.setText("Evento finalizado ver informações");
             }
         }
     }

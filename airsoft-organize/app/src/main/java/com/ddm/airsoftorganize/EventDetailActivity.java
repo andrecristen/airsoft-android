@@ -53,6 +53,7 @@ public class EventDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event_detail);
         Bundle bundle = getIntent().getExtras();
         String event = bundle.getString("event");
+        String finished = bundle.getString("finished");
         String token = UserSession.getInstance(null).token;
         Call<EventDetailResponse> call = new RetrofitInitializer().event().eventDetails(event, token);
         call.enqueue(new Callback<EventDetailResponse>() {
@@ -73,7 +74,7 @@ public class EventDetailActivity extends AppCompatActivity {
                         new ImageUrlSetUtil((ImageView) findViewById(R.id.eventDetailImageUrl)).execute(response.body().getEvento().getImagem().toString());
                     }
                     LinearLayout main_layer = (LinearLayout) findViewById(R.id.content_event_detail_scroll);
-                    if (response.body().getEvento().getTimeUsuarioInscrito() != null) {
+                    if (response.body().getEvento().getTimeUsuarioInscrito() != null && finished == null) {
                         //Usuário já está inscrito
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                         params.gravity = Gravity.CENTER_HORIZONTAL;
@@ -94,7 +95,7 @@ public class EventDetailActivity extends AppCompatActivity {
                         });
                         layout.addView(buttonUnsubscribeTeam);
                         main_layer.addView(layout);
-                    } else {
+                    } else if(finished == null) {
                         //Cria um botão pra cada time para o usuário se inscrever
                         for (EventDetailedTeamResponse team : response.body().getEvento().getTimes()) {
                             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
